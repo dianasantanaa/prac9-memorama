@@ -1,0 +1,81 @@
+*{/*anadimos estilo al fondo*/
+    margin: 0px;/*para que ocupe toda la pantalla*/
+    padding: 0px;
+    transition: all 0.9s;/*para que las cartas se volteen por cierto tiempo*/
+}/*colocamos mas estilo al cuerpo*/
+body{
+    min-height: 100vh/*margen minimo*/;
+    background-color: rgb(55, 126, 126);/*fondo*/
+    background-size: cover;/* especifica el tamaño de las imágenes de fondo*/
+    background-repeat: no-repeat;/*no se repite la imagen*/
+    display: flex;/*flexible a moviemientos*/
+    flex-direction: column;/*forma columnas*/
+    justify-content: center;/*justifica el contenido*/
+    align-items: center;/*centrado*/
+    text-align: center;/*todo texto centrado*/
+}
+h1{/*titrulo principal con tipo de letra y color*/
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(3, 3, 46);
+}
+.tablero{/*tamaño del tablero*/
+    width: 60%;
+    height: 100%;
+}
+.card-area{/*cuanto espacio se ocupara en el area*/
+    display: inline-block;
+    margin: 5px;
+}
+.card-area, .card, .face{/*tamaño de las cartas*/
+    width: 170px;/*ancho*/
+    height: 190px;/*alto*/
+    min-width: 80px;/*minimo de ancho*/
+    cursor: pointer;/*tipo de cursor*/
+}
+
+.card{
+    position: relative;/*posicion de cartas*/
+    transform-style: preserve-3d;/*indica que se moveran*/
+    animation: iniciar 3s;/*cuanto tarda la animacion*/
+}
+.face{/*cara de la carta*/
+    position: absolute;/*posicion completa de la carta*/
+    backface-visibility: hidden;/*efecto cuando coinciden*/
+}
+.front{/*cuanto se va a mover la carta*/
+    transform: rotateY(180deg);
+}
+.front img{/*estilo de la imagen agregada*/
+    width: 100%;/*ancho*/
+    height: 100%;/*altura*/
+    background-size: cover;/* especifica el tamaño de las imágenes de fondo*/
+    border-radius: 5px;/*borde redondeado*/
+}
+.back img{/*imagen de reverso*/
+    width: 100%;/*ancho*/
+    height: 100%;/*altura*/
+    background-size: cover;/* especifica el tamaño de las imágenes de fondo*/
+    border-radius: 10px;/*borde redondeado*/
+}
+
+.new-game{
+    cursor: pointer;/*estilo de cursor*/
+    font-size: 20px;
+    text-align: center;
+    margin-left: -1000px;/*margen izquierdo*/
+    margin-top: -200px;/*margen superior*/
+    padding: 20px;/*relleno al rededor*/
+    width: 150px;/*ancho*/
+    height: 25px;/*altura*/
+    border-radius: 10px;/*borde redondeado*/
+    background-color: rgb(78, 236, 223);/*color de fondo*/
+}
+/*ayuda a que sea adaptable */
+@keyframes iniciar{
+    20%,90%{
+        transform: rotateY(180deg);
+    }
+    0%,100%{
+        transform:rotateY(0deg);
+    }
+}
